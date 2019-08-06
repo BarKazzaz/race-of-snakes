@@ -1,0 +1,21 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+div.player-div{
+  width: 50%;
+  border: 1px dashed black;
+}
+.player-div h1{
+  text-align: center;
+  color: red;
+}
+.player-div h2{
+  color: blue;
+}
+.player-div p{
+  color: green;
+}
