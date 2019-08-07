@@ -1,7 +1,7 @@
 let promped = false;
 
 function setup() {
-    createCanvas(900, 900);
+    createCanvas(700, 700);
     let c1 = color(255, 0, 0);
     s1 = new Snake('s1_elem', c1);
     s1.x = 20;

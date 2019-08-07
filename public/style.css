@@ -1,21 +1,86 @@
-html, body {
-  margin: 0;
-  padding: 0;
+html,
+body {
+    background-color: grey;
+    margin: 0;
+    padding: 0;
 }
+
 canvas {
-  display: block;
+    display: block;
+    margin-left: 28em;
+    padding-top: 3em;
 }
-div.player-div{
-  width: 50%;
-  border: 1px dashed black;
+
+div.player-div {
+    margin-top: 2em;
+    border: 1px dashed black;
 }
-.player-div h1{
-  text-align: center;
-  color: red;
+
+#ui {
+    padding-left: 5em;
+    height: 100%;
+    padding-right: 5em;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
 }
-.player-div h2{
-  color: blue;
+
+#ui-title {
+    color: #d54d7b;
+    font-family: "Great Vibes", cursive;
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: normal;
+    margin-bottom: 0px;
+    margin-top: 40px;
+    text-align: center;
+    text-shadow: 0 1px 1px #fff;
 }
-.player-div p{
-  color: green;
+
+.player-div h1 {
+    text-align: center;
+    color: rgb(50, 168, 82);
+    font-weight: 300;
+    font-size: 38px;
+    margin: 0px 0px 0px 0px;
+    line-height: 120%;
+    font-family: 'Open sans', sans-serif;
+}
+
+.player-div h2 {
+    color: rgb(128, 173, 141);
+}
+
+.player-div p {
+    color: green;
+}
+
+.btn-div {
+    width: max-content;
+}
+
+.btn {
+    display: block;
+    margin-top: 1em;
+    margin-left: 3em;
+    background-color: red;
+    box-shadow: 0 5px 0 darkred;
+    color: white;
+    padding: 1em 1.5em;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.btn:hover {
+    background-color: #ce0606;
+    cursor: pointer;
+}
+
+.btn:active {
+    box-shadow: none;
+    top: 5px;
+}
+
+#container {
+    margin-left: 30%;
 }
