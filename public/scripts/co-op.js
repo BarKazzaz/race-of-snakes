@@ -1,15 +1,23 @@
 let promped = false;
+let food;
+let score_elm;
 
 function setup() {
+    score_elm = document.getElementById("co-score");
     createCanvas(700, 700);
+    let score = 0;
+    //S1
     let c1 = color(255, 0, 0);
     s1 = new Snake('s1_elem', c1);
     s1.x = 20;
     s1.y = 20;
+    //S2
     let c2 = color(255, 250, 0);
     s2 = new Snake('s2_elem', c2);
     s2.x = width - 20;
     s2.y = height - 20;
+
+    //food
     food = new Food();
 }
 
@@ -23,6 +31,11 @@ function draw() {
         s2.update();
         s2.show();
     }
+
+    //total score: 
+    score = s1.score + s2.score;
+    score_elm.innerText = "Total Score: " + score;
+
     food.show();
     if (s1.isDead && s2.isDead && !promped) {
         promped = true;

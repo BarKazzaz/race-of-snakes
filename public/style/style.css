@@ -7,7 +7,7 @@ body {
 
 canvas {
     display: block;
-    margin-left: 28em;
+    margin-left: 38em;
     padding-top: 3em;
 }
 
@@ -83,4 +83,11 @@ div.player-div {
 
 #container {
     margin-left: 30%;
+}
+
+#co-score {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 200%;
+    color: rgb(218, 218, 17);
+    text-shadow: 2px 2px #d54d7b;
 }
