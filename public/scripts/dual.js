@@ -24,10 +24,20 @@ function draw() {
         s2.show();
     }
     food.show();
-    if (s1.isDead && s2.isDead && !promped) {
-        promped = true;
-        saveMax(s1.score, s2.score);
-        promptRestart();
+    if (food.isEaten(s1, s2) != 0) {
+        if (food.isEaten(s1, s2) == 1) {
+            s1.score += 1;
+            s1.speed += 1;
+        } else {
+            s2.score += 1;
+            s2.speed += 1;
+        }
+        if (s1.isDead && s2.isDead && !promped) {
+            promped = true;
+            saveMax(s1.score, s2.score);
+            promptRestart();
+        }
+        food = new Food();
     }
 }
 
@@ -49,16 +59,6 @@ function restart() {
 
 function gameOver() {
     alert("GAME OVER");
-}
-
-function Food() {
-    this.x = Math.floor(Math.random() * (width - 10)) + 10;
-    this.y = Math.floor(Math.random() * (height - 10)) + 10;
-
-    this.show = function() {
-        fill(0);
-        rect(this.x, this.y, 10, 10);
-    }
 }
 
 function keyPressed() {

@@ -1,8 +1,18 @@
 let promped = false;
 let food;
+let c_foods = [];
 let score_elm;
 
+let COLORS;
+
 function setup() {
+    COLORS = {
+        'yellow': color(250, 250, 0),
+        'blue': color(0, 0, 250),
+        'red': color(250, 0, 0),
+        'white': color(250, 250, 250),
+    }
+
     score_elm = document.getElementById("co-score");
     createCanvas(700, 700);
     let score = 0;
@@ -18,7 +28,10 @@ function setup() {
     s2.y = height - 20;
 
     //food
-    food = new Food();
+    Object.keys(COLORS).forEach((color) => {
+        //for color in COLORS
+        c_foods.push(new ColoredFood(color));
+    })
 }
 
 function draw() {
@@ -36,11 +49,24 @@ function draw() {
     score = s1.score + s2.score;
     score_elm.innerText = "Total Score: " + score;
 
-    food.show();
+    // food.show();
     if (s1.isDead && s2.isDead && !promped) {
         promped = true;
         saveMax(s1.score, s2.score);
         promptRestart();
+    }
+    for (let i = 0; i < c_foods.length; i++) {
+        c_foods[i].show();
+        if (c_foods[i].isEaten(s1, s2) != 0) {
+            if (c_foods[i].isEaten(s1, s2) == 1) {
+                s1.score += 1;
+                s1.speed += 1;
+            } else {
+                s2.score += 1;
+                s2.speed += 1;
+            }
+            c_foods[i] = new ColoredFood(c_foods[i].color);
+        }
     }
 }
 
@@ -62,82 +88,6 @@ function restart() {
 
 function gameOver() {
     alert("GAME OVER");
-}
-
-function Food() {
-    this.x = Math.floor(Math.random() * (width - 10)) + 10;
-    this.y = Math.floor(Math.random() * (height - 10)) + 10;
-
-    this.show = function() {
-        fill(0);
-        rect(this.x, this.y, 10, 10);
-    }
-}
-
-function Snake(elm_id, c) {
-    this.score = 0;
-    this.lives = 4;
-    this.color = c;
-    this.elem_id = document.getElementById(elm_id);
-    this.init = function() {
-        this.x = width / 2;
-        this.y = height / 2;
-        this.xSpeed = 0;
-        this.ySpeed = 0;
-        this.speed = 3;
-    }
-    this.init();
-    this.update = function() {
-        //set the UI
-        this.elem_id.innerText = "Lives: " + this.lives + " Score: " + this.score;
-        //move
-        this.x += this.xSpeed * this.speed;
-        this.y += this.ySpeed * this.speed;
-        //check wall hit
-        this.isDead = this.lives < 1;
-        if ((this.x < 0) || (this.x > width) || (this.y < 0) || (this.y > height)) {
-            this.lives -= 1;
-            this.init();
-            this.isDead = this.lives < 1;
-        }
-        //eat
-        this.eat();
-    }
-
-    this.show = function() {
-        fill(this.color);
-        rect(this.x, this.y, 10, 10);
-    }
-
-    this.move = function(direction) {
-        switch (direction) {
-            case 'U':
-                this.xSpeed = 0;
-                this.ySpeed = -1;
-                break;
-            case 'D':
-                this.xSpeed = 0;
-                this.ySpeed = 1;
-                break;
-            case 'L':
-                this.xSpeed = -1;
-                this.ySpeed = 0;
-                break;
-            case 'R':
-                this.xSpeed = 1;
-                this.ySpeed = 0;
-                break;
-        }
-    }
-
-    this.eat = function() {
-        if ((Math.abs(food.x - this.x) < 10) &&
-            (Math.abs(food.y - this.y) < 10)) {
-            this.score += 1;
-            this.speed += 1;
-            food = new Food();
-        }
-    }
 }
 
 function keyPressed() {

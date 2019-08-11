@@ -24,8 +24,8 @@ function Snake(elm_id, c) {
             this.init();
             this.isDead = this.lives < 1;
         }
-        //eat
-        this.eat();
+        // //eat
+        // this.eat();
     }
 
     this.show = function() {
@@ -54,12 +54,12 @@ function Snake(elm_id, c) {
         }
     }
 
-    this.eat = function() {
-        if ((Math.abs(food.x - this.x) < 10) &&
-            (Math.abs(food.y - this.y) < 10)) {
-            this.score += 1;
-            this.speed += 1;
-            food = new Food();
-        }
-    }
+    // this.eat = function(_food) {
+    //     if ((Math.abs(food.x - this.x) < 10) &&
+    //         (Math.abs(food.y - this.y) < 10)) {
+    //         this.score += 1;
+    //         this.speed += 1;
+    //         _food = new Food();
+    //     }
+    // }
 }
