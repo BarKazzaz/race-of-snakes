@@ -4,6 +4,7 @@ function Inventory(elm_id, max_num_obj) {
     this.elm = document.getElementById(elm_id);
     this.add = function(item) {
         if (items.length < this.num_objs) {
+            this.elm.innerText = item;
             items.push(item);
             return true;
         } else return false;

@@ -1,13 +1,33 @@
 let promped = false;
+let COLORS;
+let MAIN_COLORS;
 
 function setup() {
+    COLORS = { //yellow blue red white green orange purple azure pink
+        'yellow': color(250, 250, 0),
+        'blue': color(0, 0, 250),
+        'red': color(250, 0, 0),
+        'white': color(250, 250, 250),
+        'green': color(0, 200, 0),
+        'orange': color(255, 160, 0),
+        'purple': color(150, 0, 255),
+        'azure': color(77, 170, 200),
+        'pink': color(235, 105, 230),
+        'black': color(0, 0, 0),
+        'skin': color(210, 120, 100)
+    }
+    MAIN_COLORS = {
+        'yellow': color(250, 250, 0),
+        'blue': color(0, 0, 250),
+        'red': color(250, 0, 0),
+        'white': color(250, 250, 250)
+    }
+
     createCanvas(700, 700);
-    let c1 = color(255, 0, 0);
-    s1 = new Snake('s1_elem', c1);
+    s1 = new Snake('s1_elem', "red");
     s1.x = 20;
     s1.y = 20;
-    let c2 = color(255, 250, 0);
-    s2 = new Snake('s2_elem', c2);
+    s2 = new Snake('s2_elem', "yellow");
     s2.x = width - 20;
     s2.y = height - 20;
     food = new Food();
