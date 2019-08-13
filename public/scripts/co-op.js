@@ -24,10 +24,6 @@ function setup() { //default p5 function
 function draw() { //default p5 function
     background(220);
     updateAndShowSnakes([s1, s2]);
-    // s1.update();
-    // s1.show();
-    // s2.update();
-    // s2.show();
     scoreHandle();
     goalElmHandle();
     foodHandle();
