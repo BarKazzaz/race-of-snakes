@@ -64,7 +64,9 @@ function Snake(elm_id, c) {
     }
 
     this.ejactFood = function() {
-        t_foods.push(new TimedCFood(5, this.color, this.x, this.y));
-        this.color = this.default_color;
+        if (!(this.color == this.default_color)) {
+            t_foods.push(new TimedCFood(6, this.color, this.x, this.y));
+            this.color = this.default_color;
+        }
     }
 }
