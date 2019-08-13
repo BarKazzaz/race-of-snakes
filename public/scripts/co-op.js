@@ -46,7 +46,7 @@ function keyPressed() { //default p5 function
             s1.move('D');
             break;
         case 'Control':
-            s1.ejactFood();
+            s1.ejectFood();
             break;
 
             /* P2 keys */
@@ -63,7 +63,7 @@ function keyPressed() { //default p5 function
             s2.move('D');
             break;
         case ' ':
-            s2.ejactFood()
+            s2.ejectFood()
         default:
             console.log(key);
     }

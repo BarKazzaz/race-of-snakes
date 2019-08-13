@@ -1,3 +1,9 @@
+const ejectSounds = [
+    new Audio("../sounds/puke1.mp3"),
+    new Audio("../sounds/puke2.mp3"),
+    new Audio("../sounds/fart1.mp3")
+]
+
 function Snake(elm_id, c) {
     this.score = 0;
     this.lives = 4;
@@ -63,8 +69,10 @@ function Snake(elm_id, c) {
         console.log("set color to: " + color);
     }
 
-    this.ejactFood = function() {
+    this.ejectFood = function() {
         if (!(this.color == this.default_color)) {
+            let rand_index = Math.floor(Math.random() * ejectSounds.length);
+            ejectSounds[rand_index].play();
             t_foods.push(new TimedCFood(6, this.color, this.x, this.y));
             this.color = this.default_color;
         }
