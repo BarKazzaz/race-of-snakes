@@ -21,8 +21,7 @@ function setup() { //default p5 function
     score_elm = document.getElementById("co-score");
     goal_elm = document.getElementById("goal");
     timer_elm = document.getElementById("timer");
-    timer = new Timer(5);
-    background(220);
+    timer = new Timer(1);
 }
 
 function draw() { //default p5 function
@@ -134,12 +133,15 @@ function promptRestart() {
 
 function restart() {
     promped = false;
-    s1 = new Snake(s1);
-    s2 = new Snake(s2);
+    createSnakes();
+    generateGoal();
+    timer.restart(1);
+    score = 0;
 }
 
 function gameOver() {
-    alert("GAME OVER");
+    timer.restart(1);
+    window.location.replace("http://race-of-snakes.herokuapp.com");
 }
 
 function generateGoal() {

@@ -1,9 +1,4 @@
 function Timer(minutes) {
-    this.minutes = minutes;
-    this.seconds = 0;
-    this.started = false;
-    this.finished = false;
-
     this.start = function() {
         if (this.started) return;
         let interval = setInterval(() => {
@@ -19,4 +14,11 @@ function Timer(minutes) {
         }, 1000)
         this.started = true;
     }
+    this.restart = function(minutes) {
+        this.minutes = minutes;
+        this.seconds = 0;
+        this.started = false;
+        this.finished = false;
+    }
+    this.restart(minutes); //initiate when constructor is called
 }
