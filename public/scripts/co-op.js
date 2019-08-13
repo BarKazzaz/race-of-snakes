@@ -9,6 +9,8 @@ let goal_elm;
 let score = 0;
 let score_elm;
 let t_foods = [];
+let timer;
+let timer_elm;
 
 function setup() { //default p5 function
     setColors();
@@ -18,6 +20,8 @@ function setup() { //default p5 function
     createFoods();
     score_elm = document.getElementById("co-score");
     goal_elm = document.getElementById("goal");
+    timer_elm = document.getElementById("timer");
+    timer = new Timer(5);
     background(220);
 }
 
@@ -27,10 +31,12 @@ function draw() { //default p5 function
     scoreHandle();
     goalElmHandle();
     foodHandle();
-    endGameHandle();
+    updateTimer();
+    if (timer.finished) endGameHandle();
 }
 
 function keyPressed() { //default p5 function
+    timer.start();
     switch (key) {
         /* P1 keys */
         case 'a':
@@ -248,9 +254,13 @@ function foodHandle() {
 
 function endGameHandle() {
     //endGame
-    // if (s1.isDead && s2.isDead && !promped) {
-    //     promped = true;
-    //     saveMax(s1.score, s2.score);
-    //     promptRestart();
-    // }
+    promped = true;
+    saveMax(s1.score, s2.score);
+    promptRestart();
+}
+
+function updateTimer() {
+    let seconds = timer.seconds < 10 ? '0' + timer.seconds : timer.seconds;
+    let minutes = timer.minutes < 10 ? '0' + timer.minutes : timer.minutes;
+    timer_elm.innerText = minutes + ':' + seconds;
 }

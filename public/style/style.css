@@ -98,3 +98,9 @@ div.player-div {
     font-size: 3em;
     text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
 }
+
+#timer {
+    padding-left: 35%;
+    font-size: 300%;
+    font-family: cursive;
+}
