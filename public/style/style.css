@@ -5,6 +5,10 @@ body {
     padding: 0;
 }
 
+#body-container {
+    display: block;
+}
+
 canvas {
     display: block;
     margin-left: 38em;

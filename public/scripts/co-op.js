@@ -15,7 +15,7 @@ let timer_elm;
 function setup() { //default p5 function
     setColors();
     generateGoal();
-    createCanvas(700, 700);
+    createCanvas(800, 650);
     createSnakes();
     createFoods();
     score_elm = document.getElementById("co-score");
