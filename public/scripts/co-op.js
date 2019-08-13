@@ -248,9 +248,9 @@ function foodHandle() {
 
 function endGameHandle() {
     //endGame
-    if (s1.isDead && s2.isDead && !promped) {
-        promped = true;
-        saveMax(s1.score, s2.score);
-        promptRestart();
-    }
+    // if (s1.isDead && s2.isDead && !promped) {
+    //     promped = true;
+    //     saveMax(s1.score, s2.score);
+    //     promptRestart();
+    // }
 }

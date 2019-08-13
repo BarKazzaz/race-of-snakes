@@ -1,6 +1,7 @@
 const ejectSounds = [
     new Audio("../sounds/puke1.mp3"),
     new Audio("../sounds/puke2.mp3"),
+    new Audio("../sounds/puke3.mp3"),
     new Audio("../sounds/fart1.mp3")
 ]
 
