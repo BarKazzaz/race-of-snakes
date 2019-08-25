@@ -1,0 +1,9 @@
+doctype html
+html
+  head
+    title #{title}
+  body
+    h1 Leaderboard!
+    ul Co-Op:
+        each val, index in leaderboard
+            li= index + ': ' + val

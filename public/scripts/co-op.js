@@ -11,6 +11,7 @@ let score_elm;
 let t_foods = [];
 let timer;
 let timer_elm;
+let name;
 
 function setup() { //default p5 function
     setColors();
@@ -75,6 +76,13 @@ function keyPressed() { //default p5 function
 }
 
 /*-- HELPERS --*/
+
+function getName() {
+    let url_string = window.location.href;
+    let url = new URL(url_string);
+    name = url.searchParams.get("name");
+}
+
 function addColor(color1, color2) {
     switch (color1) {
         case "yellow":
@@ -121,9 +129,21 @@ function addColor(color1, color2) {
     }
 }
 
-function saveMax(score1, score2) {
-    //TODO: should save to db if in top 10
-    console.log(Math.max(score1, score2));
+function saveScore() {
+    //req.body should be {"name":"NAME", "score":int_score}
+    new Promise((resolve, reject) => {
+            getName();
+            resolve();
+        })
+        .then(() => {
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", '/board-add', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send(JSON.stringify({
+                "name": name,
+                "score": score
+            }));
+        });
 }
 
 function promptRestart() {
@@ -257,8 +277,12 @@ function foodHandle() {
 function endGameHandle() {
     //endGame
     promped = true;
-    saveMax(s1.score, s2.score);
-    promptRestart();
+    new Promise((resolve, reject) => {
+        saveScore();
+        resolve();
+    }).then(() => {
+        promptRestart();
+    })
 }
 
 function updateTimer() {
