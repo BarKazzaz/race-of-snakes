@@ -100,7 +100,7 @@ function addColor(color1, color2) {
             } else if (color2 == "red") {
                 return "purple";
             } else if (color2 == "white") {
-                return "azure";
+                return "DeepSkyBlue";
             } else {
                 return color1;
             }
@@ -118,7 +118,7 @@ function addColor(color1, color2) {
 
         case "white":
             if (color2 == "blue") {
-                return "azure";
+                return "DeepSkyBlue";
             } else if (color2 == "red") {
                 return "pink";
             } else {
@@ -190,7 +190,7 @@ function setColors() {
         'green': color(0, 200, 0),
         'orange': color(255, 160, 0),
         'purple': color(150, 0, 255),
-        'azure': color(77, 170, 200),
+        'DeepSkyBlue': color(0, 191, 255),
         'pink': color(235, 105, 230),
         'black': color(0, 0, 0),
         'skin': color(210, 120, 100)
@@ -205,7 +205,7 @@ function setColors() {
         'green': color(0, 200, 0),
         'orange': color(255, 160, 0),
         'purple': color(150, 0, 255),
-        'azure': color(77, 170, 200),
+        'DeepSkyBlue': color(0, 191, 255),
         'pink': color(235, 105, 230)
     }
 }

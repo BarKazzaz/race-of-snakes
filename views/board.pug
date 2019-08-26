@@ -2,8 +2,10 @@ doctype html
 html
   head
     title #{title}
+    link(rel="stylesheet" href="../style/board.css")
   body
-    h1 Leaderboard!
-    ul Co-Op:
+    h1 LEADERBOARD!
+    h3 Co-Op:
+    ol(id="ol")
         each val, index in leaderboard
             li= index + ': ' + val
